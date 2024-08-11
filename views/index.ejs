@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Project: Mini Message Board</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1><%= title%></h1>
+    <div><%- include('form') %></div>
+    <h2>Messages</h2>
+    <ul>
+      <% messages.forEach(message => { %>
+      <li>
+        <div>User: <%= message.user%></div>
+        <div>Message: <%= message.message%></div>
+        <div>
+          Date: <%= new Date(message.createdAt).toLocaleString('en-US', { month:
+          '2-digit', day: '2-digit', year: 'numeric', hour: 'numeric', minute:
+          'numeric', hour12: true, timeZone: 'Asia/Manila' })%>
+        </div>
+      </li>
+      <%}); %>
+    </ul>
+  </body>
+</html>
